@@ -45,7 +45,7 @@ function aConnects (socket) {
 	console.log('> (A) remote address and port are:', socket.remoteAddress, socket.remotePort);
 	console.log('> (A) storing this for when B connects');
 
-	detailsA.remoteAddress = socket.remoteAddress;
+	detailsA.remoteAddress = socket.remoteAddress.split(':')[3];
 	detailsA.remotePort = socket.remotePort;
 
 	socket.on('data', function (data) {
@@ -81,7 +81,7 @@ function bConnects(socket) {
 	console.log('> (B) assuming B is connecting');
 	console.log('> (B) remote address and port are:', socket.remoteAddress, socket.remotePort);
 	console.log('> (B) storing this');
-	detailsB.remoteAddress = socket.remoteAddress;
+	detailsB.remoteAddress = socket.remoteAddress.split(':')[3];
 	detailsB.remotePort = socket.remotePort;
 
 	socket.on('data', function (data) {
