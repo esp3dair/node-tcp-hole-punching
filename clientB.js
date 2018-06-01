@@ -100,10 +100,12 @@ function listen (ip, port) {
 	    readStuffFromCommandLineAndSendToA();
 	});
 
-	server.listen(port, ip, function (err) {
-		if(err) return console.log(err);
-		console.log('> (B) listening on ', ip + ":" + port);
-	});
+	setTimeout(function() {
+		server.listen(port, ip, function (err) {
+			if(err) return console.log(err);
+			console.log('> (B) listening on ', ip + ":" + port);
+		});
+	}, 1000);
 }
 
 function readStuffFromCommandLineAndSendToA () {
