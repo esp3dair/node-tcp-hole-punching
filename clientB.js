@@ -7,7 +7,7 @@ var rl = readline.createInterface({
 
 // based on http://www.bford.info/pub/net/p2pnat/index.html
 
-var addressOfS = '92.53.127.28'; // replace this with the IP of the server running publicserver.js
+var addressOfS = '194.87.101.37'; // replace this with the IP of the server running publicserver.js
 var portOfS = 9999;
 
 var socketToS;
