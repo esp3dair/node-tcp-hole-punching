@@ -96,15 +96,18 @@ function bConnects(socket) {
 		console.log('> (B) sending remote details back to B');
 		socket.write(JSON.stringify(detailsB));
 
+
 		console.log('> (B)', detailsB.localAddress + ':' + detailsB.localPort, '===> (NAT of B)', detailsB.remoteAddress + ':' + detailsB.remotePort, '===> (S)', socket.localAddress + ':' + socket.localPort);
 
 
 
 		console.log('> (S->A) sending B\'s details:', detailsB);
 		socketA.write(JSON.stringify(detailsB));
+        socketA.end();
 
 		console.log('> (S->B) sending A\'s details:', detailsA);
 		socketB.write(JSON.stringify(detailsA));
+        socketB.end();
 
 
 		console.log('');
